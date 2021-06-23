@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.fabAddHappyPlace.setOnClickListener{
-            startActivity(Intent(this@MainActivity, AddHappyPlace::class.java))
+            startActivity(Intent(this@MainActivity, AddHappyPlaceActivity::class.java))
         }
 
 
