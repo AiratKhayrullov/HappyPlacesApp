@@ -16,8 +16,10 @@
     </style>
 
 
-    <style name="CustomNoActionBarTheme" parent="@style/Theme.MaterialComponents.NoActionBar">
+    <style name="CustomNoActionBarTheme" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:statusBarColor">#2a4d69</item>
+        <item name="colorPrimary">#4b86b4</item>
+        <item name="colorAccent">#adcbe3</item>
     </style>
 
     <style name="CustomToolbarStyle">
