@@ -10,6 +10,13 @@ class AddHappyPlace : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddHappyPlace2Binding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbarAddPlace)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true )
+        binding.toolbarAddPlace.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
+
 
     }
 }
