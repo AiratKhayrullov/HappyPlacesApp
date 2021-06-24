@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.airat.happyplacesapp.models.HappyPlaceModel
 
 @Database(
-    entities = [
+    entities= [
         HappyPlaceModel::class
     ],
     version = 1

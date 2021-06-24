@@ -12,12 +12,17 @@ interface HappyPlacesDao {
 
 
     @Transaction
-    @Query("SELECT * FROM HappyPlaceModel WHERE id = :idModel")
+    @Query("SELECT * FROM happyplacemodel WHERE id = :idModel")
     suspend fun getHappyPlace(idModel : Int) : HappyPlaceModel
 
+
+
     @Transaction
-    @Query("SELECT * FROM HappyPlaceModel")
+    @Query("SELECT * FROM happyplacemodel")
     suspend fun getAllHappyPlaces() : List<HappyPlaceModel>
+
+
+
 
     @Transaction
     @Update

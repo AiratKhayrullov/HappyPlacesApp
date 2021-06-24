@@ -41,7 +41,6 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityAddHappyPlace2Binding
     private val cal = Calendar.getInstance()
     private lateinit var dateSetListener: DatePickerDialog.OnDateSetListener
-    private lateinit var dao : HappyPlacesDao
     private var saveImageToInternalStorage: Uri? = null
     private var mLatitude: Double = 0.0
     private var mLongitude: Double = 0.0
@@ -114,15 +113,22 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
                     else -> {
                         val happyPlaceModel = HappyPlaceModel(0, binding.etTitle.text.toString(), saveImageToInternalStorage.toString(), binding.etDescription.text.toString(), binding.etDate.text.toString(), binding.etLocation.text.toString(), mLatitude, mLongitude)
                         lifecycleScope.launch(Dispatchers.IO) {
-                            dao = HappyPlacesDatabase.getInstance(applicationContext).happyPlaceDao
+                            val dao = HappyPlacesDatabase.getInstance(applicationContext).happyPlaceDao
                             try {
                                 dao.insertHappyPlace(happyPlaceModel)
-                                Toast.makeText(applicationContext, "Image is saved successfully", Toast.LENGTH_SHORT).show()
+                                lifecycleScope.launch(Dispatchers.Main) {
+                                    setResult(Activity.RESULT_OK)
+                                    finish()
+                                }
                             } catch (e: Exception){
                                 e.printStackTrace()
+                                lifecycleScope.launch(Dispatchers.Main) {
+                                    Toast.makeText(v.context, "Image isn't saved successfully", Toast.LENGTH_SHORT).show()
+                                }
                             }
 
                         }
+
                     }
                 }
 
