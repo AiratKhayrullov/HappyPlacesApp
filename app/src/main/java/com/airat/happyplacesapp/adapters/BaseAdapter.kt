@@ -1,20 +1,22 @@
 package com.airat.happyplacesapp.adapters
 import androidx.recyclerview.widget.RecyclerView
+import pl.kitek.rvswipetodelete.SwipeToEditCallback
 import java.util.ArrayList
 
 
 abstract class BaseAdapter<P>: RecyclerView.Adapter<BaseViewHolder<P>>() {
     protected var mDataList: MutableList<P> = ArrayList()
-    private var mCallback: BaseAdapterCallback<P>? = null
+    private var mBaseCallback: BaseAdapterCallback<P>? = null
 
     var hasItems = false
 
     fun attachCallback(callback: BaseAdapterCallback<P>) {
-        this.mCallback = callback
+        this.mBaseCallback = callback
     }
 
+
     fun detachCallback() {
-        this.mCallback = null
+        this.mBaseCallback = null
     }
 
     fun setList(dataList: List<P>) {
@@ -38,19 +40,20 @@ abstract class BaseAdapter<P>: RecyclerView.Adapter<BaseViewHolder<P>>() {
         setList(itemsList)
     }
 
+    fun deleteItem(position: Int){
+        mDataList.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
+    fun getItem(position: Int) : P {
+        return mDataList[position]
+    }
+
     override fun onBindViewHolder(holder: BaseViewHolder<P>, position: Int) {
         holder.bind(mDataList[position])
 
         holder.itemView.setOnClickListener {
-            mCallback?.onItemClick(mDataList[position], holder.itemView)
-        }
-        holder.itemView.setOnLongClickListener {
-            if (mCallback == null) {
-                false
-            } else {
-                mCallback!!.onLongClick(mDataList[position], holder.itemView)
-            }
-
+            mBaseCallback?.onItemClick(mDataList[position], holder.itemView)
         }
     }
 

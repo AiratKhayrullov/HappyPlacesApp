@@ -106,6 +106,9 @@
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_location"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/edit_text_hint_location"
@@ -115,11 +118,27 @@
                     android:textSize="@dimen/edit_text_text_size" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:id="@+id/tv_select_current_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/add_place_select_current_location_marginTop"
+                android:background="@drawable/shape_image_view_border"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:padding="@dimen/add_place_select_current_location_padding"
+                android:text="@string/add_place_select_current_location_text"
+                android:textColor="?colorAccent"
+                android:textSize="@dimen/add_place_select_current_location_textsize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_location" />
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_place_image"
                 android:layout_width="@dimen/add_screen_place_image_size"
                 android:layout_height="@dimen/add_screen_place_image_size"
-                android:layout_marginTop="@dimen/add_screen_place_image_marginTop"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/shape_image_view_border"
                 android:padding="@dimen/add_screen_place_image_padding"
                 android:scaleType="centerCrop"
@@ -127,13 +146,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_location" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_select_current_location" />
+
 
             <TextView
                 android:id="@+id/tv_add_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/add_screen_text_add_image_marginTop"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:padding="@dimen/add_screen_text_add_image_padding"
@@ -143,17 +162,15 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/btn_save"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.45"
                 app:layout_constraintStart_toEndOf="@+id/iv_place_image"
-                app:layout_constraintTop_toBottomOf="@+id/til_location"
-                app:layout_constraintVertical_bias="0.019" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_select_current_location" />
 
             <Button
                 android:id="@+id/btn_save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/add_screen_btn_save_marginTop"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/shape_button_rounded"
                 android:gravity="center"
                 android:paddingTop="@dimen/add_screen_btn_save_paddingTopBottom"

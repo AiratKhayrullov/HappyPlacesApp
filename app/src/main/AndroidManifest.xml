@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.airat.happyplacesapp">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -13,6 +15,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HappyPlacesApp">
+        <activity
+            android:name=".activities.MapActivity"
+            android:label="HAPPY PLACE MAP"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomNoActionBarTheme">
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyC9iNKOVw78Gmu5SAkLt0_7gQocVH4sEHw" />
+        </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC9iNKOVw78Gmu5SAkLt0_7gQocVH4sEHw" />
+
+
         <activity
             android:name=".activities.HappyPlaceDetailActivity"
             android:label="HAPPY PLACE DETAIL"
