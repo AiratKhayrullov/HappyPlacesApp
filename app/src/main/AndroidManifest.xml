@@ -22,11 +22,11 @@
             android:theme="@style/CustomNoActionBarTheme">
             <meta-data
                 android:name="com.google.android.geo.API_KEY"
-                android:value="AIzaSyC9iNKOVw78Gmu5SAkLt0_7gQocVH4sEHw" />
+                android:value="The key was here:)" />
         </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC9iNKOVw78Gmu5SAkLt0_7gQocVH4sEHw" />
+            android:value="The key was here:)" />
 
 
         <activity
